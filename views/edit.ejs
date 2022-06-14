@@ -1,0 +1,44 @@
+<%- include("partials/header") %>
+<div id="box" class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="card px-1 py-1">
+        <div class="card-body">
+            <form action="/transaction/<%=foundOne._id%>?_method=PUT" method="POST">
+            <h6 class="card-title mb-3 text-center">Edit your transaction details</h6>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                         <input class="form-control" type="number" name="newOne[amount]" placeholder="amount"  min="1" max="1000000000" value="<%=foundOne.amount%>" required> </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group"> <input class="form-control" type="text" name="newOne[name]" placeholder="name" maxlength="40" value="<%=foundOne.name%>" required></div>
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <textarea class="form-control" name="newOne[description]" placeholder="description" maxlength="300" rows="3"> <%- foundOne.description %> </textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group">   <select class="custom-select" name="newOne[action]" id="action">
+    <option value="+">+ Credit</option>
+    <option value="-">- Debit</option>
+  </select></div>
+                    </div>
+                </div>
+            </div>
+         <button class="myBtn btn-block"><i class="fa fa-check-circle"></i> Confirm</button>
+         </form> 
+        </div>
+        </div>
+    </div>
+<%- include("partials/footer") %>

@@ -1,0 +1,75 @@
+<%- include("partials/header") %>
+<% var newTime = ''; %>
+<% var newDate = ''; %>
+<% var dateKolkata = ''; %>
+<% var a = []; %>
+<% function myFunction(){ %>
+ <% dateKolkata = moment.tz(Date.now(), "Asia/Kolkata"); %>
+ <% newDate = moment(dateKolkata).format('DD/MM/YYYY'); %>
+ <% newTime = moment(dateKolkata).format('LT'); %>
+ <% var a = [newDate, newTime]; %>
+ <% return a; %>
+<% } %> 
+<% a = myFunction(); %> 
+<div id="box" class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="card px-1 py-1">
+        <div class="card-body">
+        	<form action="/addTransaction" method="POST">
+            <h6 class="card-title mb-3 text-center">Add your transaction details</h6>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                         <input class="form-control" type="text" name="new[username]" value="<%=currentUser.username%>" readonly> </div>
+                </div>
+            </div>            
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                         <input class="form-control" type="text" name="new[dateCreated]" value="<%= a[0] %>" readonly> </div>
+                </div>
+            </div>            
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                         <input class="form-control" type="text" name="new[timeCreated]" value="<%= a[1] %>" readonly> </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                         <input class="form-control" type="number" name="new[amount]" placeholder="amount"  min="1" max="1000000000" required> </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group"> <input class="form-control" type="text" name="new[name]" placeholder="name" maxlength="40" required></div>
+                    </div>
+                </div>
+            </div>
+             <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                        	<textarea class="form-control" name="new[description]" placeholder="description" maxlength="300" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                <select class="custom-select" name="new[action]" id="action">
+                    <option value="+">+ Credit</option>
+                    <option value="-">- Debit</option>
+                </select></div>
+                    </div>
+                </div> 
+         </div>
+         <button class="myBtn btn-block"><i class="fa fa-plus-circle"></i> Add</button>
+		 </form> 
+		</div>
+        </div>
+    </div>
+<%- include("partials/footer") %>

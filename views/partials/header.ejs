@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#212121">
+  <meta name="author" content="Junayed Rahaman">
+ <!--  open graph tags -->
+ <meta property="og:image" content="/images/thumbnail.png">
+<meta property="og:description" content="Web App to keep track of budget and create transaction record.">
+<meta property="og:title" content="DailyPay">
+  <meta name="google-site-verification" content="h8A82_IVcjKB5j9juuy411fYHUHC4Z9nFBIQl9K7CHM" />
+	<title>DailyPay - Your Money Management Partner</title>
+      <!-- <link rel="stylesheet" href="/css/mdb.min.css" /> -->
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" href= "/css/font-awesome.min.css">
+  <link rel="stylesheet" href= "/css/animate.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
+<script src="/js/jquery.min.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+	  <!-- navbar -->
+  <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+      <a href="/" class="navbar-brand">
+        <span>D</span>
+        DailyPay
+      </a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <% if(!currentUser){ %>
+          <li class="nav-item">
+            <a id="nav-link" href="/register" class="nav-link"><i class="fa fa-user"></i> Register</a>
+          </li>          
+          <li class="nav-item">
+            <a id="nav-link" href="/login" class="nav-link"><i class="fa fa-sign-in"></i> Login</a>
+          </li>
+          <% } else { %>         
+          <li class="nav-item">
+            <a id="nav-link" href="/transaction" class="nav-link"><i class="fa fa-user"></i> Hi <%= currentUser.username %></a>
+          </li>          
+          <li class="nav-item">
+            <a id="nav-link" href="/logout" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a>
+          </li>
+          <% } %>
+          <li class="nav-item">
+            <a id="nav-link" href="/" class="nav-link"><i class="fa fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a id="nav-link" href="/transaction" class="nav-link"><i class="fa fa-money"></i> Transactions</a>
+          </li>          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <% if(error && error.length > 0){ %>
+ <div class="container d-flex justify-content-center">
+   <div class="row">
+    <div class="col-sm-12 col-centered animate__animated animate__shakeX">
+  <div style="font-family: Ubuntu" class="alert alert-danger mt-4"><%= error %> <i class="fa fa-meh-o"></i></div>
+  </div>
+  </div>
+</div>
+  <% } %>  
+  <% if(success && success.length > 0){ %>
+ <div class="container d-flex justify-content-center">
+   <div class="row">
+    <div class="col-sm-12 col-centered animate__animated animate__tada">
+  <div style="font-family: Ubuntu" class="alert alert-success mt-4"><%= success %> <i class="fa fa-check-circle"></i></div>
+  </div>
+  </div>
+</div>
+  <% } %>  
+  <% if(primary && primary.length > 0){ %>
+ <div class="container d-flex justify-content-center">
+   <div class="row">
+    <div class="col-sm-12 col-centered animate__animated animate__tada">
+  <div style="font-family: Ubuntu" class="alert alert-primary mt-4"><%= primary %> <i class="fa fa-check-circle"></i></div>
+  </div>
+  </div>
+</div>
+  <% } %>

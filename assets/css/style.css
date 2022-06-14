@@ -1,0 +1,189 @@
+@font-face{
+  font-family: 'passion_one_font';
+  src: url('../fonts/PassionOne-Regular.ttf');
+}
+html,body{
+  height: 100%;
+}
+body{
+  background: url('../images/tiles/45degreee_fabric.png') top left repeat, #dae0e6;
+} 
+/* Ripple effect */
+.rippleDelete {
+  background-position: center;
+  transition: background 0.5s;
+}
+.rippleDelete:hover {
+  background: #dc143ccc radial-gradient(circle, transparent 1%, #dc143c99 1%) center/15000%;
+}
+.rippleDelete:active {
+  background-color: #dc143ccc;
+  background-size: 100%;
+  transition: background 0s;
+}
+.rippleEdit {
+  background-position: center;
+  transition: background 0.5s;
+}
+.rippleEdit:hover {
+  background: #1e90ffcc radial-gradient(circle, transparent 1%, #1e90ff99 1%) center/15000%;
+}
+.rippleEdit:active {
+  background-color: #1e90ffcc;
+  background-size: 100%;
+  transition: background 0s;
+}
+/*ripple end*/
+.container{
+ font-family: 'Ubuntu', sans-serif; 
+}
+#nav-link{
+    color: #0f1419 !important;
+    font-family: 'passion_one_font', sans-serif;
+    transition: 0.3s;
+user-select: none;
+}
+#nav-link:hover{
+color: #56ab2f !important;
+}
+#icon{
+    font-size: 23px;
+    color: #56ab2f;
+}
+#icon2{
+  font-size: 19px;
+}
+#delete{
+  display: inline-block;
+}
+.navbar{
+  background: url('../images/tiles/greek-vase.png') top left repeat;
+}
+.navbar-brand{
+  font-family: 'passion_one_font', sans-serif;
+  font-size: 1.8rem;
+  color: #0f1419 !important; 
+  user-select: none;
+  font-weight: normal !important;
+}
+.navbar-brand span{
+  color: #fff !important;
+  background: linear-gradient(to right, #a8e063, #56ab2f);
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  border-radius: 3px;
+}
+.navbar-expand-md{
+   box-shadow: 0 0 7px rgba(0,0,0,0.3);
+    background-color: #fff;  
+}
+.navbar .nav-item {
+    font-size: 1.2rem;
+  }
+.navbar-toggler{
+    outline: none !important;
+    border-radius: 0px !important;
+    border: none;
+    transition: 0.5s;
+}
+.navbar-toggler-icon {
+    background-image: url('../images/icons/bars-solid.svg') !important;
+}
+.col-centered{
+    float: none !important;
+    margin: 0 auto !important;
+}
+
+.myBtn{
+   padding:5px 10px;
+   font-size: 18px;
+   display: inline-block;
+   background: linear-gradient(to right, #a8e063, #56ab2f);
+   border:none !important;
+   border-radius: 3px;
+   text-align: center;
+   text-decoration: none;
+   outline: none !important;
+   cursor: pointer;
+   overflow: hidden !important;
+   color: ghostwhite !important;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+}
+.myBtn:hover{
+    text-decoration: none;
+  color: ghostwhite !important;
+       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+}
+.myBtnEdit{
+   padding:5px 10px;
+   font-size: 16px;
+   display: inline-block;
+   background-color: dodgerblue;
+   border:none !important;
+   border-radius: 3px;
+   text-decoration: none;
+   transition: 0.5s;
+   outline: none !important;
+   cursor: pointer;
+   color: ghostwhite !important;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+}
+.myBtnEdit:hover{
+    text-decoration: none;
+  color: ghostwhite !important;
+       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+
+}
+.myBtnDelete{
+   padding:5px 10px;
+   font-size: 16px;
+   background-color: crimson;
+   border:none !important;
+   border-radius: 3px;
+   text-decoration: none;
+   transition: 0.5s;
+   outline: none !important;
+   cursor: pointer;
+   color: ghostwhite !important;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+}
+.myBtnDelete:hover{
+    text-decoration: none;
+  color: ghostwhite !important;
+       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24) !important;
+
+}
+.jumbotron{
+  background: url('../images/tiles/greek-vase.png') top left repeat;
+}
+#box{
+  padding-bottom: 2.5rem;
+}
+.wrapper{
+position: relative;
+min-height: 100vh;
+}
+.alert-success{
+  background-color: #56ab2f; 
+  border:1px solid #155724;
+  color: #fff;
+}
+.alert-danger{
+    color: #fff;
+    background-color: crimson;
+    border:1px solid #721c24;
+}
+.alert-primary {
+    color: #fff;
+    background-color: dodgerblue;
+    border:1px solid #004085;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0vw;
+    left: 0vw;
+    height: 2.5rem; 
+}

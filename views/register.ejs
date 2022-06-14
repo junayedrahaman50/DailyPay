@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+  <% if(msg != ''){ %>
+ <div class="container d-flex justify-content-center">
+   <div class="row">
+    <div class="col-sm-12 col-centered animate__animated animate__shakeX">
+  <div style="font-family: Ubuntu" class="alert alert-danger mt-4"><%= msg %> <i class="fa fa-meh-o"></i></div>
+  </div>
+  </div>
+</div>
+  <% } %>
+<div id="box" class="container mt-2 mb-5 d-flex justify-content-center">
+    <div class="card px-1 py-4">
+        <div class="card-body">
+            <form action="/register" method="POST">
+            <h6 class="card-title mb-3 text-center"><i class="fa fa-user-plus"></i> Register to DailyPay</h6>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group"> <input class="form-control" type="text" name="username" placeholder="Username" maxlength="15">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span></div>
+                    </div>
+                </div>
+            </div>            
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="input-group"> <input class="form-control" type="password" name="password" placeholder="Password">
+                        <span class="input-group-text"> <i class="fa fa-key"></i> </span></div>
+                    </div>
+                </div>
+            </div>
+         <button class="myBtn btn-block"><i class="fa fa-user"></i> Register</button>
+         </form>
+         <h6 class="card-title my-3 text-center">Already an user? Login</h6>
+         <a href="/login" class="myBtn btn-block"><i class="fa fa-sign-in"></i> Login</a> 
+        </div>
+        </div>
+    </div>
+<%- include("partials/footer") %>

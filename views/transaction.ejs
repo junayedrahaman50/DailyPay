@@ -1,0 +1,49 @@
+<%- include("partials/header") %>
+<% var a = 0; %>
+<% credits.forEach((credit) => { %>
+<% a += credit.amount; %>
+<% }); %>
+<% var b = 0; %>
+<% debits.forEach((debit) => { %>
+<% b += debit.amount; %>
+<% }); %>
+
+  <div id="box" class="container">
+    <div class="jumbotron mt-3" style="background-color:#fff !important;color:#2d2d2d !important;border-radius:3px !important;">
+        <p class="text-center" style="font-size:25px;font-family:'passion_one_font', sans-serif;font-weight:400;"><i id="icon" class="fa fa-quote-left"></i>   DailyPay - Your Money Management Partner <i id="icon" class="fa fa-quote-right"></i></p>
+        <p class="text-center" style="font-size:25px;font-family:'passion_one_font', sans-serif;font-weight:400;">
+          Current Balance: <i id="icon2" class="fa fa-rupee"></i> <%= a - b %>
+        </p>
+        <p class="text-center">
+          <a href="/add" class="myBtn"><i class="fa fa-plus-circle"></i> Add New Transaction</a>
+        </p>
+    </div>
+    <div class="row">
+      <div class="col-md-9 col-centered">
+  <% for(var i=transactions.length - 1;i>=0;i--) { %>
+  <div class="card my-3">
+  <h5 class="card-header text-center"><%= transactions[i].action %> <%= transactions[i].amount %></h5>
+  <div class="card-body">
+    <h5 class="card-title"><%= transactions[i].name %></h5>
+    <p style="color: dimgray;" class="card-text"><%= transactions[i].description %>.</p>
+
+    <a href="/transaction/<%=transactions[i]._id%>/edit" class="myBtnEdit rippleEdit">Edit <i class="fa fa-pencil"></i> </a>
+
+        <form id="delete" action="/transaction/<%=transactions[i]._id%>/delete?_method=DELETE" method="POST">
+            <button class="myBtnDelete rippleDelete ml-2">Delete <i class="fa fa-trash"></i> </button>
+        </form>
+
+    <span class="text-muted" style="float: right;font-size: 14px;">
+       <%= transactions[i].timeCreated %>
+       <br>
+       <%=transactions[i].dateCreated%>
+     </span>
+
+  </div>
+</div>	
+<% }; %>
+      </div>
+    </div>
+  </div>
+
+<%- include("partials/footer") %>
